@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 
 // Routes
 const addRoute = require("./routes/addData");
+const readRoute = require("./routes/readData");
 
 // DB Connection
 mongoose.connect(process.env.DATABASE, {
@@ -23,6 +24,7 @@ app.use(express.json());
 
 // My routes
 app.use("/api", addRoute);
+app.use("/api", readRoute);
 
 app.use((err, req, res, next) => {
     res.status(500).json({ error: err.message });
