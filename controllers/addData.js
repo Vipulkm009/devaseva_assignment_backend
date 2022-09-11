@@ -1,13 +1,26 @@
-const Data = require("../models/data");
+const Fruit = require("../models/fruit");
+const Vegetable = require("../models/vegetable");
 
-exports.addData = (req, res) => {
-    const data = new Data(req.body);
-    data.save((err, data) => {
+exports.addFruit = (req, res) => {
+    const fruit = new Fruit(req.body);
+    fruit.save((err, fruit) => {
         if(err) {
             return res.status(400).json({
                 error: "NOT able to save category in DB."
             });
         }
-        res.json({data});
+        res.json({fruit});
+    });
+};
+
+exports.addVegetable = (req, res) => {
+    const vegetable = new Vegetable(req.body);
+    vegetable.save((err, vegetable) => {
+        if(err) {
+            return res.status(400).json({
+                error: "NOT able to save category in DB."
+            });
+        }
+        res.json({vegetable});
     });
 };

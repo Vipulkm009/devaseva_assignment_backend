@@ -1,12 +1,44 @@
-const Data = require("../models/data");
+const Fruit = require("../models/fruit");
+const Vegetable = require("../models/vegetable");
 
-exports.readData = (req, res) => {
-    Data.find().exec((err, datas) => {
+exports.readFruits = (req, res) => {
+    Fruit.find().exec((err, fruits) => {
         if(err) {
             return res.status(400).json({
                 error: "NO data in DB."
             });
         }
-        res.json({datas});
+        res.json({fruits});
+    });
+};
+
+exports.readVegetables = (req, res) => {
+    Vegetable.find().exec((err, vegetables) => {
+        if(err) {
+            return res.status(400).json({
+                error: "NO data in DB."
+            });
+        }
+        res.json({vegetables});
+    });
+};
+
+exports.readAll = (req, res) => {
+    data = [];
+    Fruit.find().exec((err, fruits) => {
+        if(err) {
+            return res.status(400).json({
+                error: "NO data in DB."
+            });
+        }
+        data = fruits;
+    });
+    Vegetable.find().exec((err, vegetables) => {
+        if(err) {
+            return res.status(400).json({
+                error: "NO data in DB."
+            });
+        }
+        data.push(vegetables);
     });
 };

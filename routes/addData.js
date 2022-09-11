@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const { addData } = require("../controllers/addData");
+const { addFruit, addVegetable } = require("../controllers/addData");
 
-router.post("/addData", addData);
+router.post("/addFruit", addFruit);
+router.post("/addVegetable", addVegetable);
 
 module.exports = router;
