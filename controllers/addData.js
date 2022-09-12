@@ -6,7 +6,7 @@ exports.addFruit = (req, res) => {
     fruit.save((err, fruit) => {
         if(err) {
             return res.status(400).json({
-                error: "NOT able to save category in DB."
+                error: "NOT able to save Fruit in DB."
             });
         }
         res.json({fruit});
@@ -18,7 +18,7 @@ exports.addVegetable = (req, res) => {
     vegetable.save((err, vegetable) => {
         if(err) {
             return res.status(400).json({
-                error: "NOT able to save category in DB."
+                error: "NOT able to save Vegetable in DB."
             });
         }
         res.json({vegetable});

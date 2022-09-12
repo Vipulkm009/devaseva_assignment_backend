@@ -24,7 +24,7 @@ exports.readVegetables = (req, res) => {
 };
 
 exports.readAll = (req, res) => {
-    data = [];
+    var data = [];
     Fruit.find().exec((err, fruits) => {
         if(err) {
             return res.status(400).json({
@@ -41,4 +41,5 @@ exports.readAll = (req, res) => {
         }
         data.push(vegetables);
     });
+    res.json({data});
 };
