@@ -39,6 +39,6 @@ exports.readAll = (req, res) => {
                 error: "NO data in DB."
             });
         }
-        res.json({data, vegetables});
+        res.json({fruits, vegetables});
     });
 };
