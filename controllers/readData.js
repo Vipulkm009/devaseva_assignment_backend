@@ -2,31 +2,35 @@ const Fruit = require("../models/fruit");
 const Vegetable = require("../models/vegetable");
 
 exports.readFruits = (req, res) => {
-    Fruit.find().exec((err, fruits) => {
-        if(err) {
-            return res.status(400).json({
-                error: "NO data in DB."
-            });
-        }
-        res.json({fruits});
-    });
+    // Fruit.find().exec((err, fruits) => {
+    //     if(err) {
+    //         return res.status(400).json({
+    //             error: "NO data in DB."
+    //         });
+    //     }
+    //     res.json({fruits});
+    // });
+    return res.json(
+        [
+            "Banana", "Orange", "Apple", "Guava"
+        ]);
 };
 
 exports.readVegetables = (req, res) => {
     Vegetable.find().exec((err, vegetables) => {
-        if(err) {
+        if (err) {
             return res.status(400).json({
                 error: "NO data in DB."
             });
         }
-        res.json({vegetables});
+        res.json({ vegetables });
     });
 };
 
 exports.readAll = (req, res) => {
     var fruits;
     Fruit.find().exec((err, data) => {
-        if(err) {
+        if (err) {
             return res.status(400).json({
                 error: "NO data in DB."
             });
@@ -34,11 +38,11 @@ exports.readAll = (req, res) => {
         fruits = data;
     });
     Vegetable.find().exec((err, vegetables) => {
-        if(err) {
+        if (err) {
             return res.status(400).json({
                 error: "NO data in DB."
             });
         }
-        res.json({fruits, vegetables});
+        res.json({ fruits, vegetables });
     });
 };

@@ -10,19 +10,24 @@ const addRoute = require("./routes/addData");
 const readRoute = require("./routes/readData");
 
 // DB Connection
-mongoose.connect(process.env.DATABASE, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log("DB CONNECTED");
-}).catch((reason) => {
-    console.log("SOME ERROR");
-    console.log(`${reason}`)
-});
+// mongoose.connect("mongodb+srv://devaseva_another_user:devaseva@devaseva-assignment-app.eyw0iks.mongodb.net/?retryWrites=true&w=majority", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// }).then(() => {
+//     console.log("DB CONNECTED");
+// }).catch((reason) => {
+//     console.log("SOME ERROR");
+//     console.log(`${reason}`)
+// });
 
 app.use(express.json());
 
 // My routes
+// app.use("/", (req, res) => {
+//     return res.status(200).json({
+//         message: "Endpoint working properly."
+//     });
+// });
 app.use("/api", addRoute);
 app.use("/api", readRoute);
 
